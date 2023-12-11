@@ -4,16 +4,20 @@
  */
 package rental_skuter;
 
+import database.db_connection;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author dimas
  */
 public class Register extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Register
-     */
+    ResultSet rs;
+    db_connection con;
     public Register() {
+        con =new db_connection(new database.parameter().HOST_DB,new database.parameter().USERNAME_DB,new database.parameter().PASSWORD_DB);
         initComponents();
     }
 
@@ -28,11 +32,11 @@ public class Register extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nama_lengkap_f = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        email_field = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        password_field = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
@@ -43,15 +47,23 @@ public class Register extends javax.swing.JFrame {
 
         jLabel2.setText("Nama lengkap");
 
-        jLabel3.setText("Username");
+        jLabel3.setText("Email");
 
         jLabel4.setText("Password");
 
         jButton1.setText("Daftar Sekarang");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jLabel5.setForeground(new java.awt.Color(51, 51, 255));
         jLabel5.setText("Sudah punya akun? Login sekarang.");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel5MousePressed(evt);
             }
@@ -70,11 +82,11 @@ public class Register extends javax.swing.JFrame {
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1)
+                            .addComponent(nama_lengkap_f)
                             .addComponent(jLabel3)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(email_field, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                             .addComponent(jLabel4)
-                            .addComponent(jPasswordField1))))
+                            .addComponent(password_field))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 110, Short.MAX_VALUE)
@@ -94,15 +106,15 @@ public class Register extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nama_lengkap_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(email_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
@@ -114,9 +126,17 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
-        dispose();
-        new Home().setVisible(true);        // TODO add your handling code here:
+//          // TODO add your handling code here:
     }//GEN-LAST:event_jLabel5MousePressed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        dispose();
+        new Home().setVisible(true);      
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        daftar();
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -154,14 +174,38 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField email_field;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField nama_lengkap_f;
+    private javax.swing.JPasswordField password_field;
     // End of variables declaration//GEN-END:variables
+
+    private void daftar(){
+        String nama_lengkap = nama_lengkap_f.getText();
+        String email = email_field.getText();
+        String password = password_field.getText();
+        
+        try{
+            if(!nama_lengkap.isEmpty() && !email.isEmpty() && !password.isEmpty()){
+                String kolom[] = {"email","password","status","nama"};
+                String isi[] = { email_field.getText(),password_field.getText(), "User", nama_lengkap_f.getText()};
+                
+                System.out.println( con.queryInsert("users_google",kolom,isi));
+               
+                JOptionPane.showMessageDialog(this, "Data Berhasil Disimpan");
+            }else{
+                JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Error input data");
+            System.out.println("salah");
+        }
+        
+    }
+
 }

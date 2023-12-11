@@ -80,6 +80,7 @@ public class Home extends javax.swing.JFrame {
         login_with_instagram = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         login_with_google = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,6 +130,14 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setForeground(new java.awt.Color(51, 0, 255));
+        jLabel3.setText("Belum punya akun? Daftar.");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,22 +155,23 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(submit_login_button))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(email_field)
+                            .addComponent(password_label)
+                            .addComponent(password_field, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(login_with_instagram, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(login_with_google)
-                                .addGap(16, 16, 16))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(email_field)
-                                .addComponent(password_label)
-                                .addComponent(password_field, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))))
+                                .addComponent(login_with_google))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel2))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jLabel2)))
-                .addGap(49, 49, 49))
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel3)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,14 +188,16 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(password_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(submit_login_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(login_with_instagram)
                     .addComponent(jLabel4)
                     .addComponent(login_with_google))
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap())
         );
 
         pack();
@@ -250,6 +262,11 @@ public class Home extends javax.swing.JFrame {
             }   
         }
     }//GEN-LAST:event_submit_login_buttonMouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        dispose();
+        new Register().setVisible(true);
+    }//GEN-LAST:event_jLabel3MouseClicked
     
 
     /**
@@ -304,6 +321,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel email_label;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel login_with_google;
     private javax.swing.JLabel login_with_instagram;

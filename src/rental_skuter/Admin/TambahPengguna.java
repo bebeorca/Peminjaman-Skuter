@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author dimas
+ * 
  */
 public class TambahPengguna extends javax.swing.JFrame {
     

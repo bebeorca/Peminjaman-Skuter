@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/dimas/Documents/NetBeansProjects/rental_skuter/src/rental_skuter/Register.java</file>
+            <file>file:/C:/Users/dimas/Documents/NetBeansProjects/rental_skuter/src/rental_skuter/Admin/Dashboard.java</file>
+            <file>file:/C:/Users/dimas/Documents/NetBeansProjects/rental_skuter/src/database/DataSkuter.java</file>
+            <file>file:/C:/Users/dimas/Documents/NetBeansProjects/rental_skuter/src/rental_skuter/Admin/TambahSkuter.java</file>
+            <file>file:/C:/Users/dimas/Documents/NetBeansProjects/rental_skuter/src/rental_skuter/Admin/TambahPengguna.java</file>
             <file>file:/C:/Users/dimas/Documents/NetBeansProjects/rental_skuter/src/rental_skuter/Home.java</file>
+            <file>file:/C:/Users/dimas/Documents/NetBeansProjects/rental_skuter/src/rental_skuter/User/Sewa.java</file>
+            <file>file:/C:/Users/dimas/Documents/NetBeansProjects/rental_skuter/src/koneksi/connection.java</file>
             <file>file:/C:/Users/dimas/Documents/NetBeansProjects/rental_skuter/src/database/db_connection.java</file>
+            <file>file:/C:/Users/dimas/Documents/NetBeansProjects/rental_skuter/src/database/parameter.java</file>
         </group>
     </open-files>
 </project-private>

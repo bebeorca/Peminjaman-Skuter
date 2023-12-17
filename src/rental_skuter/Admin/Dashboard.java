@@ -6,7 +6,7 @@ package rental_skuter.Admin;
 
 /**
  *
- * @author dimas
+ * 
  */
 public class Dashboard extends javax.swing.JFrame {
 

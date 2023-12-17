@@ -31,7 +31,7 @@ public class Sewa extends javax.swing.JFrame {
         data_skuter();
         
         harga_sewa.disable();
-        submit_sewa.disable();
+        submit_sewa.setEnabled(false);
         total_harga.disable();
         uang_bayar.disable();
     }
@@ -197,9 +197,9 @@ public class Sewa extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(uang_bayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submit_sewa)
-                    .addComponent(jButton2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(submit_sewa))
                 .addContainerGap())
         );
 
@@ -335,6 +335,8 @@ public class Sewa extends javax.swing.JFrame {
                         id_skuter.setText("");
                         durasi_sewa.setText("");
                         uang_bayar.setText("");
+                        harga_sewa.setText("");
+                        total_harga.setText("");
                         harga_sewa.disable();
                         submit_sewa.setEnabled(false);
                         total_harga.disable();

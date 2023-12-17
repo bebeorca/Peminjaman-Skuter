@@ -55,10 +55,7 @@ public class Home extends javax.swing.JFrame {
     void loginInfo(String label, boolean check){
         if(!check){
             JOptionPane.showMessageDialog(null, label, "Login", JOptionPane.DEFAULT_OPTION);
-        }else{
-            JOptionPane.showMessageDialog(null, "Anda login menggunakan "+label, "Login", JOptionPane.DEFAULT_OPTION);
         }
-        
     }
     
     /**

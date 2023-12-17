@@ -174,7 +174,7 @@ public class db_connection {
                 SQL += ",";
             }
         }
-
+ 
         SQL += ")";
         return this.eksekusiUpdate(SQL);
 
